@@ -1060,7 +1060,11 @@ ul li a:hover {
         font-size: 14px;
         padding: 10px 15px;
     }
-
+ #countdown-timer {
+     display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Stack timer elements vertically */
+        gap: 10px; /* Reduce gap */
+    }
    
 }
 @media (max-width: 768px) {
