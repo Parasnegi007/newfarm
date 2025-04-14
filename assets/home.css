@@ -91,10 +91,53 @@ header {
   
 }
 
+.marquee {
+    display: flex; /* Keeps text inline */
+    gap: 600px; /* Adds spacing between text lines */
+    overflow: hidden; /* Ensures text stays within the container */
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: move-train 30s linear infinite; /* Creates continuous scrolling */
+}
 
+.marquee h8, .marquee h9 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
 
+@keyframes move-train {
+    from {
+        transform: translateX(100%); /* Start off-screen on the right */
+    }
+    to {
+        transform: translateX(-100%); /* Move off-screen on the left */
+    }
+}
+
+.container {
+    width: 100%; /* Occupies full width */
+    overflow: hidden; /* Prevents text from spilling out */
+}
+
+@media (max-width: 768px) {
+    .marquee {
+        display: flex;
+        gap: 50px; /* Space between texts */
+        overflow: hidden;
+        white-space: nowrap;
+        animation: move-train 15s linear infinite;
+        width: 200%; /* Make the container wide enough to display full text */
+    }
+}
 
 .intro-section h8 {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
+   
+}
+.intro-section h9 {
     position: relative;
     font-size: 13px;
     color: #ffffff; /* Minimal heading color */
@@ -415,77 +458,188 @@ margin-top: 50px;
         display: none; /* Hide the menu entirely on desktop */
     }
 }
-
-
-/* Hero Section with Background Image */
+/* Hero Section */
 .hero {
     position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    background: url('images/bg.jpg') no-repeat center center/cover;
-    color: rgb(255, 255, 255);
-    padding: 50px 20px;
-    margin-top: 0px;
-    background-attachment: fixed;
-    transition: background-image 1.5s ease-in-out;
+    overflow: hidden;
+    background-color: #333; /* Fallback color in case images don't load */
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero-carousel {
+    display: flex;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Adjust the 0.4 for more or less darkness */
+    transition: transform 0.8s ease-in-out; /* Smooth sliding effect */
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Slide Image */
+.carousel-slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: 1;
 }
 
-.hero * {
+/* Slide Content */
+.carousel-content {
     position: relative;
-    z-index: 2; /* Keeps text and buttons above the dark overlay */
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
 }
 
-.hero-background {
+.carousel-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+}
+
+/* Arrow Controls */
+.carousel-control {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Twice the width for sliding */
-    height: 100%;
-    background-size: cover;
-    background-position: left center;
-    transition: transform 1.5s ease-in-out;
-  
-}
-.hero h2 {
-    font-size: 73px;
-    margin-bottom: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-}
-
-.hero p {
-    font-size: 18px;
-}
-
-.hero button {
-    background: #FFB54C; /* Muted teal for a premium organic touch */
-    color: white;
-    font-size: 25px;
-    font-family: 'Playfair Display', serif;
     border: none;
-    padding: 16px 35px;
-    border-radius: 0% ;
-        transition: background 0.3s;
+    padding: 10px 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 3;
 }
 
+.carousel-control.prev {
+    left: 10px;
+}
 
-.hero button:hover {
-    background: #FFB54C; /* Deep jungle green for a subtle hover effect */
-    box-shadow: #222;
-transform: scale(1.05);
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dots Navigation */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-dots .dot.active {
+    background: rgba(255, 255, 255, 1); /* Highlight active dot */
+}
+
+/* Content Animations */
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slide-in-left 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slide-in-right 1s ease-in-out;
+}
+
+.slide-in-up {
+    animation: slide-in-up 1s ease-in-out;
+}
+
+.slide-in-down {
+    animation: slide-in-down 1s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-content h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+    }
+
+    .carousel-control {
+        font-size: 1.5rem;
+        padding: 8px 15px;
+    }
 }
 
 /* Promotional Section */
@@ -521,21 +675,27 @@ transform: scale(1.05);
  transform: scale(1.05);
     background: #FFB54C;
 }
-
-.countdown-banner {
-    text-align: center;
-    background-color: #FFB54C;
-    padding: 20px;
-    color: #3D2B1F;
-    font-family: Arial, sans-serif;
-}
-
 #countdown-timer {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content: center; /* Center the timer horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 30px; /* Add spacing between time units */
     font-size: 20px;
     font-weight: bold;
+    background-color: #FFB54C; /* Keep the original background color */
+    padding: 20px; /* Keep consistent padding */
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column; /* Stack label and time vertically */
+    align-items: center; /* Center-align labels and times */
+}
+
+.label {
+    font-size: 16px;
+    color: #3D2B1F; /* Label color */
+    margin-bottom: 5px; /* Add space between label and time */
 }
 
 .time {
@@ -545,6 +705,8 @@ transform: scale(1.05);
     background: #3D2B1F;
     border-radius: 5px;
 }
+
+
 
 
 
@@ -594,10 +756,12 @@ transform: scale(1.05);
 }
 
 .product-card img {
-    width: 90%;
-    height:auto;
-    border-radius: 0px;
+    width: 100%; /* Full width of the container */
+    height: 300px; /* Fixed height to maintain consistency */
+    object-fit: cover; /* Ensure the image fills the container by zooming in */
+    border-radius: 0px; /* Optional: Keeps the edges square */
 }
+
 
 .product-card h3 {
     font-size: 20px;
@@ -784,7 +948,7 @@ transform: scale(1.05);
 }
 /* Image Styling */
 .image-scrollbar {
-    max-width: 1000px;
+  
     display: flex;
     flex-wrap: nowrap; /* Keep images in a single row */
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -799,12 +963,13 @@ transform: scale(1.05);
 }
 
 .image-scrollbar img {
-    width: 500px;
-    height: 400px;
+    width: 300px;
+    height: auto;
+  
     border-radius: 00px; /* Rounded edges */
     object-fit: cover; /* Ensure images maintain proportions */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* Hover animation */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth animation */
 }
 
 .image-scrollbar img:hover {
@@ -826,6 +991,16 @@ transform: scale(1.05);
     .image-scrollbar {
         width: 100%;
         max-width: none; /* Allow full width on smaller screens */
+    }
+    .image-scrollbar img:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+        cursor: pointer;
+    }
+    
+    /* Scroll-triggered sliding effect */
+    .image-scrollbar.slide-in {
+        transform: translateX(0); /* Slide into view */
+        opacity: 1; /* Fade in */
     }
 }
 .highlights-section {
@@ -860,6 +1035,19 @@ transform: scale(1.05);
     margin: 0; /* Remove extra margin */
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    
+.highlights-section {
+    display: grid;
+    margin-top: 20px;
+  
+    grid-template-columns: repeat(2, 1fr); /* Create two equal-width columns */
+    gap: 20px; /* Space between items */
+    padding: 40px; /* Padding around the section */
+  
+}
+}
 
 /* Ensure body and html take full height */
 html, body {
@@ -950,7 +1138,7 @@ html, body {
     color: #FFF; /* White text */
     padding: 20px 60px;
     font-family: Arial, sans-serif;
-    font-size: 14px; /* Slightly smaller text size */
+    font-size: 18px; /* Slightly smaller text size */
 }
 
 .footer-content {
@@ -966,7 +1154,7 @@ html, body {
 }
 
 h3 {
-    font-size: 18px; /* Decrease text size slightly */
+    font-size: 22px; /* Decrease text size slightly */
     color:white; /* Accent color for section titles */
     margin-bottom: 15px;
 }
@@ -983,12 +1171,12 @@ ul li {
 ul li a {
     color: #FFF; /* Original white text color */
     text-decoration: none;
-    font-size: 14px; /* Slightly smaller size */
+    font-size: 18px; /* Slightly smaller size */
 }
 
 ul li a:hover {
     color: #942905; /* Yellowish tone on hover */
-    text-decoration: underline; /* Keep hover effect for visibility */
+   
 }
 
 .social-links {
@@ -1000,7 +1188,7 @@ ul li a:hover {
 .social-icon {
     text-decoration: none;
     color: #FFF; /* Original white text */
-    font-size: 14px; /* Slightly reduced size */
+    font-size: 18px; /* Slightly reduced size */
 }
 
 .social-icon:hover {
@@ -1008,7 +1196,7 @@ ul li a:hover {
 }
 
 .footer-eco p {
-    font-size: 14px; /* Reduced text size */
+    font-size: 18px; /* Reduced text size */
     line-height: 1.5;
     margin-top: 10px;
 }
@@ -1023,26 +1211,6 @@ ul li a:hover {
 }
 
 
-@media (max-width: 768px) {
-    .hero {
-        height: 70vh; /* Adjust height for smaller screens */
-        padding: 20px;
-        background-attachment: scroll; /* Disable parallax on mobile for smoother performance */
-    }
-
-    .hero h2 {
-        font-size: 36px; /* Reduce font size */
-    }
-
-    .hero p {
-        font-size: 14px; /* Smaller paragraph size */
-    }
-
-    .hero button {
-        font-size: 16px; /* Adjust button size */
-        padding: 10px 20px; /* Smaller padding */
-    }
-}
 @media (max-width: 768px) {
     .promo {
         padding: 15px;
@@ -1087,33 +1255,36 @@ ul li a:hover {
 }
 @media (max-width: 768px) {
     .site-footer {
-        padding: 20px; /* Adjust padding */
+        padding: 10px; /* Adjust padding */
         text-align: center; /* Center-align all content */
     }
 
     .footer-content {
-        flex-direction: column; /* Stack sections vertically */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Create two equal-width columns */
+        gap: 0px; /* Add spacing between columns */
+        padding: 0px; /* Add padding around the content */
+     text-align: left;
+     font-size: 20px;
     }
-
+    
     .footer-links, .footer-support, .social-media, .footer-eco {
         margin-bottom: 20px; /* Add spacing between sections */
     }
 
     h3 {
-        font-size: 16px; /* Smaller section titles */
+        font-size: 20px; /* Smaller section titles */
     }
 
     ul li a {
-        font-size: 14px; /* Smaller text size */
+        font-size: 16px; /* Smaller text size */
     }
 
     .social-links {
         gap: 5px; /* Reduce spacing between icons */
     }
 
-    .payment-icon {
-        width: 30px; /* Scale down payment icons */
-    }
+
 }
 @media (max-width: 768px) {
     h2 {

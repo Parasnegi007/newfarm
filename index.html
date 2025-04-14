@@ -76,8 +76,13 @@
 <!--intro -->
 <section class="intro-section">
     <div class="container">
-        <h8>"Cultivating Brilliance in Khadrala’s Verdant Heights"</h8>
+        <div class="marquee">
+            <h8>"Cultivating Brilliance in Khadrala’s Verdant Heights"</h8>
+            <h9>Get 20% off on your first purchase! <strong>Limited time only!</strong></h9>
+        </div>
     </div>
+
+
     <div class="fruit-container" id="fruitContainer"></div>
 
 <script>
@@ -104,15 +109,54 @@
 </script>
 </section>
 
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>We Grow & Sell Organic Apples</h2>
-            <p>Fresh, juicy, and naturally grown apples delivered to your doorstep.</p>
-        
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-carousel">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+            <img src="assets/images/IMG_0021-2.jpg" alt="Organic Apples">
+            <div class="carousel-content">
+                <h2 class="slide-in-left">We Grow & Sell Organic Apples</h2>
+                <p class="slide-in-right">Fresh, juicy, and naturally grown apples delivered to your doorstep.</p>
+            </div>
         </div>
-    </section>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+            <img src="assets/images/bg.jpg" alt="Farm Background">
+            <div class="carousel-content">
+                <h2 class="slide-in-up">Experience Nature’s Best</h2>
+                <p class="slide-in-down">Harvested with love and care, straight from our orchards.</p>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+            <img src="assets/images/IMG_0036.jpg" alt="Fresh Apples">
+            <div class="carousel-content">
+                <h2 class="slide-in-left">Juicy and Delicious</h2>
+                <p class="slide-in-right">Perfect for snacking, baking, and making memories.</p>
+            </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+            <img src="assets/images/IMG_0124.jpg" alt="Apple Orchard">
+            <div class="carousel-content">
+                <h2 class="slide-in-up">From Our Orchards to Your Table</h2>
+                <p class="slide-in-down">Organic goodness you can trust for your family’s health.</p>
+            </div>
+        </div>
+    </div>
+     <!-- Arrow Controls -->
+     <button class="carousel-control prev">&#10094;</button>
+     <button class="carousel-control next">&#10095;</button>
+     <!-- Dots Navigation -->
+     <div class="carousel-dots">
+         <span class="dot active"></span>
+         <span class="dot"></span>
+         <span class="dot"></span>
+         <span class="dot"></span>
+     </div>
+ </section>
+
 
     <!-- Promotional Section -->
     <section class="promo">
@@ -122,14 +166,27 @@
 
     </section>
     <div class="countdown-banner">
-        <h3>Spring Harvest Sale Ends In:</h3>
         <div id="countdown-timer">
-            <span class="time" id="days">00</span> Days
-            <span class="time" id="hours">00</span> Hours
-            <span class="time" id="minutes">00</span> Minutes
-            <span class="time" id="seconds">00</span> Seconds
+            <div class="time-unit">
+                <span class="label">Days</span>
+                <span id="days" class="time">00</span>
+            </div>
+            <div class="time-unit">
+                <span class="label">Hours</span>
+                <span id="hours" class="time">00</span>
+            </div>
+            <div class="time-unit">
+                <span class="label">Minutes</span>
+                <span id="minutes" class="time">00</span>
+            </div>
+            <div class="time-unit">
+                <span class="label">Seconds</span>
+                <span id="seconds" class="time">00</span>
+            </div>
         </div>
-    </div>
+    </div><script>
+    </script>
+    
     
     <!-- 🔹 Featured Products Section -->
 <section id="featured-products" class="product-section">
