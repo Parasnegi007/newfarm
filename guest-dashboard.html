@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Fresh Apples Store</title>
+     <!-- Font Awesome CDN for icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/guestdashboard.css">
+</head>
+<body>
+
+         <!-- Header Section -->
+         <header>
+            <!-- Centered Logo -->
+            <div class="logo">
+                <h1>🍏Fresh Apples</h1>
+            </div>
+            <div class=nav-links>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <!-- Cart & wishlist on the Right -->
+            <div class="header-right">
+                <div class="cart-container">
+                    <a href="cart.html">
+                        <img src="assets/images/4.png" alt="cart" class="nav-logo">
+                    </a>
+                    <span id="cart-count" class="cart-count"></span>
+                </div>
+                <div class="wishlist-container">
+                    <a href="wishlist.html">
+                        <img src="assets/images/7.png" alt="wishlist" class="nav-logo">
+                    </a>
+                </div>
+                
+                
+            </div>
+        </header>
+        <!--intro -->
+        <section class="intro-section">
+            <div class="container">
+                <h8>"Cultivating Brilliance in Khadrala’s Verdant Heights"</h8>
+            </div>
+            <div class="fruit-container" id="fruitContainer"></div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const fruitContainer = document.getElementById("fruitContainer");
+                const fruits = ['🍏', '🍒', '🫐','🍎', '🍓'];
+                
+                function createFruit() {
+                    const fruit = document.createElement("div");
+                    fruit.classList.add("fruit");
+                    fruit.innerHTML = fruits[Math.floor(Math.random() * fruits.length)];
+                    fruit.style.left = Math.random() * 100 + "vw";
+                    fruit.style.animationDuration = Math.random() * 3 + 5 + "s";
+                    fruit.style.fontSize = Math.random() * 15 + 15 + "px"; // Varying fruit size
+                    fruitContainer.appendChild(fruit);
+                    
+                    setTimeout(() => {
+                        fruit.remove();
+                    }, 8000);
+                }
+        
+                setInterval(createFruit, 500);
+            });
+        </script>
+        </section>
+        <section class="dashboard-container">
+  <div class="guest-dashboard">
+    <h2>Welcome, Guest</h2>
+
+    <button class="login-btn" onclick="window.location.href='login.html'">Login for Full Access</button>
+
+    <div class="track-order-section">
+        <h3>Track Your Order</h3>
+      
+        <label for="trackEmail">Email</label>
+        <input type="email" id="trackEmail" placeholder="Enter your email" />
+      
+        <label for="trackPhone">Phone</label>
+        <input type="text" id="trackPhone" placeholder="Enter your phone number" />
+      
+        <label for="trackOrderId">Order ID</label>
+        <input type="text" id="trackOrderId" placeholder="Enter order ID (optional)" />
+      
+        <button class="track-order-btn" id="trackBtn">Track Order</button>
+      
+        <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+      </div>
+      
+      <!-- Show order result here -->
+      <div class="result-box" style="margin-top: 20px;"></div>
+      
+    <div class="order-status" id="order-status-box">
+      <h4>Latest Status:</h4>
+      <p id="order-status-text"></p>
+    </div>
+  </div>
+        </section>
+        <script src="assets/guestdashboard.js"></script>
+<script src="assets/header.js"></script>
+</body>
+</html>

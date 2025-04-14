@@ -1,0 +1,1131 @@
+/* General Styles */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
+/* Falling Fruits Styling */
+html {
+    scroll-behavior: smooth;
+}
+
+.fruit-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.fruit {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.8;
+    animation: fallFruits linear infinite;
+}
+
+/* Keyframes for Falling Animation */
+@keyframes fallFruits {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+body {
+    background: #ffffff; /* Soft, creamy pastel yellow */
+    color: #3D2B1F; /* Rich deep brown for readability */
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+}
+a {
+    display: inline-block; /* Makes the <a> tag behave like a block */
+    width:auto; /* Ensures it takes full width of the button */
+    text-decoration: none; /* Removes any default underline */
+}
+
+h1,h2, h3, h4, h5, h6 {
+    color: #444444; /* Bold, rich burnt orange */
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+}
+
+/* Fixed Header with Frosted Glass Effect */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px;
+    background: rgba(245, 248, 255, 0.392); /* Frosted glass effect */
+  
+   
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+ 
+    height: 80px;
+}
+
+/* Main Background Styling */
+.intro-section {
+    position: relative;
+   border-bottom: #f5f5f5 0.5px solid;
+    margin-top: 0px;
+    padding-top: 80px;
+    padding-bottom: 0px;
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    background: #ffa220; /* Frosted glass effect */
+  
+}
+
+
+
+
+.intro-section h8 {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
+   
+}
+/* Navigation Links in a Single Division */
+.nav-links {
+    flex: 1;
+    display:inline-flex;
+    transform: translateX(40px);
+    justify-content:center;
+}
+
+.nav-links nav ul {
+    list-style: none;
+    display: flex;
+    font-size: larger;
+    gap: 30px;
+    margin-top: 25px;
+margin-left: 0vw;
+    padding: 0;
+}
+
+.nav-links nav ul li {
+    display: inline;
+}
+
+.nav-links nav ul li a {
+    color: #FFFFFF;    
+    text-decoration: none;
+    font-weight: lighter;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links nav ul li a:hover {
+    color: #b10707;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    padding: 0;
+    gap: 500px;
+    position: relative;
+}
+nav ul li {
+    position: relative; /* Ensures the underline stays within each link */
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 5px;
+    transition: background 0.3s, text-decoration 0.3s;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Moves the underline slightly below the text */
+    left: 50%; /* Starts from center */
+    width: 0;
+    height: 2px;
+    background-color: #b10707;
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%); /* Keeps it centered */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+.dashboard-container {
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; /* Soft-rounded corners for a premium look */
+    background: linear-gradient(to bottom, #f5f5f5, #d9d9d9); /* Light gradient for depth */
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #444; /* Stronger border for definition */
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.5), 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle depth effect */
+    cursor: pointer;
+}
+/* Centered Logo */
+.logo {
+    flex: 1;
+    display: flex;
+    justify-content: left; /* Center the logo */
+    text-align: center;
+    position: absolute;
+    top: 22px;
+    left: 17vw;
+    transform: translateX(-50%);
+}
+
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Cart & Dashboard on Right */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+/* Box Styling Around Cart & Dashboard */
+.cart-container, 
+.wishlist-container, 
+.dashboard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; /* Soft-rounded corners for a premium look */
+    background: linear-gradient(to bottom, #f5f5f5, #d9d9d9); /* Light gradient for depth */
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #444; /* Stronger border for definition */
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.5), 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle depth effect */
+    cursor: pointer;
+}
+
+.cart-container:hover, 
+.wishlist-container:hover, 
+.dashboard-container:hover {
+    background: linear-gradient(to bottom, #e3e3e3, #c4c4c4); /* Slightly darker hover effect */
+    transform: translateY(-2px);
+    border-color: #222; /* Darker border on hover */
+}
+.cart-container a img,
+.wishlist-container a img{
+    position: relative;
+    top: 4px;
+    left: 0px;
+    width: 35px;
+    height: 35px;
+}
+
+/* Cart container with badge */
+.cart-container {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: light;
+    padding: 3px 6px;
+    border-radius: 0% ;
+        min-width: 18px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 3;
+}
+/* For Desktop Screens (above 1024px) */
+@media (min-width: 1025px) {
+    .menu-bar {
+        display: none; /* Hide menu button on desktop */
+    }
+    .nav-links {
+        display: flex; /* Ensure normal display of nav links */
+    }
+}
+
+/* For Mobile Screens (up to 1024px) */
+@media (max-width: 1024px) {
+    .menu-bar {
+        display: flex; /* Show menu button */
+        align-items: center;
+        position: absolute;
+        left: 15px;
+        top: 25px;
+        z-index: 1500;
+    }
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #3D2B1F;
+    }
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+    }
+
+    .nav-links.active {
+        display: flex; /* Visible when active class is added */
+    }
+
+
+    .logo {
+        position: relative;
+        left: 5vw;
+        transform: none;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: -35px;
+    }
+
+    .header-right {
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        margin-top: -10px;
+        gap: 0px;
+    }
+
+    .cart-container,
+    .wishlist-container {
+        margin: 0 5px;
+    }
+}
+/* Sliding Side Menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -80%; /* Fully hidden offscreen */
+    width: 50%;
+    height: 100%;
+    background-color: #ffffff; /* Match header color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: left 0.3s ease; /* Smooth slide effect */
+    z-index: 2000;
+    padding: 20px 10px;
+}
+
+/* Active State for the Menu (Slides In) */
+.side-menu.active {
+    left: 0; /* Bring the menu onscreen */
+}
+.side-menu ul li a {
+    text-decoration: none;
+   
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid #e4e4e4; /* Line below each link */
+    padding-bottom: 15px; /* Extra space specifically below the text */
+    text-align: center;
+}
+.side-menu ul li:first-child a {
+margin-top: 50px;
+}
+.side-menu ul li:last-child a {
+    border-bottom: none; /* Remove line below the last link */
+}
+.side-menu ul li a:hover {
+    color: #FFB54C; /* Professional hover effect */
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    padding: 10px 0;
+}
+
+.side-menu .nav-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.side-menu .dashboard-container {
+    margin-left: 0px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 0; /* Soft-rounded corners for a premium look */
+    background: linear-gradient(to bottom, #f5f5f5, #d9d9d9); /* Light gradient for depth */
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #444; /* Stronger border for definition */
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.5), 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle depth effect */
+    cursor: pointer;
+}
+
+/* For Desktop Screens (above 1024px) */
+@media (min-width: 1025px) {
+    .side-menu {
+        display: none; /* Hide the menu entirely on desktop */
+    }
+}
+
+
+/* Hero Section with Background Image */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('images/bg.jpg') no-repeat center center/cover;
+    color: rgb(255, 255, 255);
+    padding: 50px 20px;
+    margin-top: 0px;
+    background-attachment: fixed;
+    transition: background-image 1.5s ease-in-out;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust the 0.4 for more or less darkness */
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2; /* Keeps text and buttons above the dark overlay */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Twice the width for sliding */
+    height: 100%;
+    background-size: cover;
+    background-position: left center;
+    transition: transform 1.5s ease-in-out;
+  
+}
+.hero h2 {
+    font-size: 73px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.hero button {
+    background: #FFB54C; /* Muted teal for a premium organic touch */
+    color: white;
+    font-size: 25px;
+    font-family: 'Playfair Display', serif;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 0% ;
+        transition: background 0.3s;
+}
+
+
+.hero button:hover {
+    background: #FFB54C; /* Deep jungle green for a subtle hover effect */
+    box-shadow: #222;
+transform: scale(1.05);
+}
+
+/* Promotional Section */
+.promo {
+    background-color: #ffffff; /* Yellow background for promo */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promo h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.promo p {
+    font-size: 18px;
+}
+
+.promo button {
+    padding: 12px 24px;
+    background:#FFB54C;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 0% ;
+        font-weight: bold;
+}
+
+.promo button:hover {
+ transform: scale(1.05);
+    background: #FFB54C;
+}
+
+.countdown-banner {
+    text-align: center;
+    background-color: #FFB54C;
+    padding: 20px;
+    color: #3D2B1F;
+    font-family: Arial, sans-serif;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.time {
+    font-size: 28px;
+    color: #FFF;
+    padding: 5px 10px;
+    background: #3D2B1F;
+    border-radius: 5px;
+}
+
+
+
+/* 🔹 Featured Products Section */
+#featured-products {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
+#featured-products h2 {
+    font-size: 36px;
+    color: #3D2B1F;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
+.product-list {
+    display: flex;
+    gap: 20px;
+}
+.product-card {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 300px;
+    background: white;
+    padding: 10px;
+    border-radius: 0px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 90%;
+    height:auto;
+    border-radius: 0px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #444444;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFB54C;
+}
+
+.product-card button {
+    background: #FFB54C;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition: background 0.3s;
+}
+
+.product-card button:hover {
+    background: #FFB54C;
+}
+
+/* 🔹 Shop by Categories Section */
+/* Shop by Category Section */
+#shop-by-category {
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 50px;
+    background-color: #ffffff; /* Light background to highlight the section */
+}
+
+#shop-by-category h2 {
+    font-size: 36px;
+    padding: 30px;
+    color: #3D2B1F; /* A warm, earthy tone */
+    margin-bottom: 20px;
+}
+
+/* Category Container Styling */
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between categories */
+}
+
+/* Category Box Styling */
+.category-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Remove underline for links */
+    color: #3D2B1F; /* Warm text color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Circle Image Styling */
+.category-box::before {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: #FFB54C; /* Fallback color in case image is unavailable */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* Makes the shape circular */
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+/* Dynamic Background Images for Each Category */
+.category-box[href="apples.html"]::before {
+    background-image: url('images/bg.jpg');
+}
+
+.category-box[href="cherries.html"]::before {
+    background-image: url('images/ch.jpg');
+}
+
+.category-box[href="strawberries.html"]::before {
+    background-image: url('images/strawberyy\ \,\ blueberyy\ \,\ cherry\ in\ 3\ diffrent\ images\ respectively\ give\ one\ by\ one.jpg');
+}
+
+
+.category-box[href="blueberries.html"]::before {
+    background-image: url('images/str.jpg');
+}
+
+/* Hover Effects */
+.category-box:hover {
+    color: #FF5733; /* Vibrant hover color for text */
+    transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+
+/* Farm Story Section */
+.farm-story {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 20pxpx;
+    border-bottom:#FFB54C solid 10px;
+    border-top: #FFB54C solid 10px;
+    overflow: hidden; /* Prevent overflow from pseudo-elements or background layers */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/Untitled-1.png); /* The image for tiling */
+    background-repeat: repeat; /* Repeat the image across the entire background */
+    background-size: 50%; /* Keep the original size of the image */
+    background-position: top left; /* Positioning of the tiles */
+    opacity: 0.15; /* Apply opacity here */
+    z-index: -1; /* Push the background behind the content */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Keep the text and other content above the background */
+}
+
+/* Heading Styling */
+.farm-story h2 {
+    
+    font-size: 36px;
+    padding: 30px;
+   max-width: 500px;
+    color: #3D2B1F; /* Earthy tone */
+    margin:auto;
+    text-transform: uppercase; /* Professional touch */
+    letter-spacing: 2px; /* Enhanced typography */
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    border-bottom: #000000 1px solid;
+}
+
+/* Paragraph Styling */
+.farm-story p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #5A3C2E; /* Smooth brown tone for readability */
+    max-width: 1000px; /* Restrict paragraph width for cleaner presentation */
+    padding: 0 20px; /* Add spacing for text */
+    text-align: justify; /* Professional alignment */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .farm-story {
+        padding: 30px;
+        gap: 20px; /* Adjust spacing for smaller screens */
+    }
+
+    .farm-story h2 {
+        font-size: 28px;
+        letter-spacing: 1px; /* Reduce spacing for mobile screens */
+    }
+
+    .farm-story p {
+        font-size: 16px;
+        line-height: 1.6; /* Adjust readability */
+    }
+
+    .farm-story img {
+        width: 90%; /* Adjust image width for smaller screens */
+    }
+}
+/* Image Styling */
+.image-scrollbar {
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: nowrap; /* Keep images in a single row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px; /* Space between images */
+    padding: 10px 0;
+    transform: translateX(-100%); /* Start off-screen */
+    opacity: 0; /* Initially hidden */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth sliding effect */
+    scrollbar-width: thin; /* Customize scrollbar appearance */
+    scrollbar-color: #FFB54C #FFF; /* Thumb and track colors */
+ 
+}
+
+.image-scrollbar img {
+    width: 500px;
+    height: 400px;
+    border-radius: 00px; /* Rounded edges */
+    object-fit: cover; /* Ensure images maintain proportions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Hover animation */
+}
+
+.image-scrollbar img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    cursor: pointer;
+}
+
+/* Scroll-triggered sliding effect */
+.image-scrollbar.slide-in {
+    transform: translateX(0); /* Slide into view */
+    opacity: 1; /* Fade in */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   
+
+    .image-scrollbar {
+        width: 100%;
+        max-width: none; /* Allow full width on smaller screens */
+    }
+}
+.highlights-section {
+    display: grid;
+    margin-top: 50px;
+  
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adaptive grid */
+    gap: 20px; /* Space between items */
+    padding: 40px; /* Padding around the section */
+    background-color: #FFB54C; /* Pure white background */
+    text-align: center; /* Center-align content */
+}
+
+.highlight-item i {
+    font-size: 40px; /* Icon size */
+    color: rgb(255, 255, 255); /* Vibrant farm-style color */
+    margin-bottom: 10px; /* Space between icon and title */
+}
+
+.highlight-item h3 {
+    font-size: 18px;
+    color: #ffffff; /* Earthy tone */
+    margin-bottom: 8px;
+    text-transform: uppercase; /* Professional touch */
+    font-weight: bold;
+}
+
+.highlight-item p {
+    font-size: 14px;
+    color: #ffffff; /* Softer tone for readability */
+    line-height: 1.6;
+    margin: 0; /* Remove extra margin */
+}
+
+
+/* Ensure body and html take full height */
+html, body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Make the main content section expand to push footer down */
+.container {
+    flex: 1;
+}
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    background-color: #FFF; /* Natural white background */
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    color: #3D2B1F;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+.testimonial-scrollbar {
+    display: flex;
+    flex-wrap: nowrap; /* Horizontal scroll */
+    gap: 20px; /* Space between testimonials */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px 0;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.testimonial-scrollbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, etc. */
+}
+
+.testimonial {
+    flex-shrink: 0; /* Prevent shrinking */
+    text-align: center;
+    width: 300px; /* Fixed width for testimonials */
+    padding-bottom: 20px; /* Add spacing below content */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(-100%); /* Start off-screen */
+    opacity: 0; /* Initially hidden */
+}
+
+
+.testimonial-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Round images */
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.stars {
+    color: #FFD700; /* Gold stars */
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.testimonial h4 {
+    font-size: 18px;
+    color: #3D2B1F; /* Earthy tone */
+    margin-bottom: 5px;
+    
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #5A3C2E; /* Softer tone */
+    line-height: 1.4;
+}
+
+
+/* Footer Styling */
+.site-footer {
+    background-color: #FFB54C; /* Original earthy tone */
+    color: #FFF; /* White text */
+    padding: 20px 60px;
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Slightly smaller text size */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Ensure responsive layout */
+    gap: 30px; /* Space between sections */
+    justify-content: space-between;
+}
+
+.footer-links, .footer-support, .social-media, .footer-eco {
+    flex: 1; /* Equal space distribution */
+    min-width: 200px; /* Ensures a balanced layout */
+}
+
+h3 {
+    font-size: 18px; /* Decrease text size slightly */
+    color:white; /* Accent color for section titles */
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    color: #FFF; /* Original white text color */
+    text-decoration: none;
+    font-size: 14px; /* Slightly smaller size */
+}
+
+ul li a:hover {
+    color: #942905; /* Yellowish tone on hover */
+    text-decoration: underline; /* Keep hover effect for visibility */
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #FFF; /* Original white text */
+    font-size: 14px; /* Slightly reduced size */
+}
+
+.social-icon:hover {
+    color: #942905; /* Yellowish color on hover */
+}
+
+.footer-eco p {
+    font-size: 14px; /* Reduced text size */
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid white; /* Keep the accent border color */
+    padding-top: 10px;
+    font-size: 12px; /* Slightly smaller for copyright */
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh; /* Adjust height for smaller screens */
+        padding: 20px;
+        background-attachment: scroll; /* Disable parallax on mobile for smoother performance */
+    }
+
+    .hero h2 {
+        font-size: 36px; /* Reduce font size */
+    }
+
+    .hero p {
+        font-size: 14px; /* Smaller paragraph size */
+    }
+
+    .hero button {
+        font-size: 16px; /* Adjust button size */
+        padding: 10px 20px; /* Smaller padding */
+    }
+}
+@media (max-width: 768px) {
+    .promo {
+        padding: 15px;
+    }
+
+    .promo h2 {
+        font-size: 28px; /* Smaller font size */
+    }
+
+    .promo p {
+        font-size: 14px; /* Adjust text size */
+    }
+
+    .promo button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+   
+}
+@media (max-width: 768px) {
+    #shop-by-category {
+        padding: 20px; /* Reduce padding */
+    }
+
+    .category-box {
+        font-size: 14px; /* Adjust text size */
+    }
+
+    .category-container {
+        gap: 15px; /* Reduce space between categories */
+    }
+
+    .category-box::before {
+        width: 150px; /* Smaller circular images */
+        height: 150px;
+    }
+}
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 20px; /* Adjust padding */
+        text-align: center; /* Center-align all content */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .footer-links, .footer-support, .social-media, .footer-eco {
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    h3 {
+        font-size: 16px; /* Smaller section titles */
+    }
+
+    ul li a {
+        font-size: 14px; /* Smaller text size */
+    }
+
+    .social-links {
+        gap: 5px; /* Reduce spacing between icons */
+    }
+
+    .payment-icon {
+        width: 30px; /* Scale down payment icons */
+    }
+}
+@media (max-width: 768px) {
+    h2 {
+        font-size: 24px; /* General heading adjustment */
+    }
+
+    p {
+        font-size: 14px; /* Reduce paragraph text size */
+    }
+
+    button {
+        font-size: 14px; /* Standardize button sizes across sections */
+    }
+
+    img {
+        width: 100%; /* Ensure images are fully responsive */
+        height: auto;
+    }
+}
