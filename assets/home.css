@@ -675,6 +675,21 @@ margin-top: 50px;
  transform: scale(1.05);
     background: #FFB54C;
 }
+
+/* Countdown Heading Styles */
+.countdown-banner h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 50;
+    color: #ffffff; /* Eye-catching sale color */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #FFB54C; /* Light background to highlight */
+    border-radius: 0px; /* Slightly rounded edges */
+    width: 100vw; /* Fit text width */
+    margin: 0 auto; /* Centers the heading horizontally */
+}
+
 #countdown-timer {
     display: flex;
     justify-content: center; /* Center the timer horizontally */
@@ -683,16 +698,18 @@ margin-top: 50px;
     font-size: 20px;
     font-weight: bold;
     background-color: #FFB54C; /* Keep the original background color */
-    padding: 20px; /* Keep consistent padding */
+    padding: 10px; /* Keep consistent padding */
 }
 
 .time-unit {
+    font-weight: lighter;
     display: flex;
     flex-direction: column; /* Stack label and time vertically */
     align-items: center; /* Center-align labels and times */
 }
 
 .label {
+    font-weight: lighter;
     font-size: 16px;
     color: #3D2B1F; /* Label color */
     margin-bottom: 5px; /* Add space between label and time */
@@ -702,12 +719,104 @@ margin-top: 50px;
     font-size: 28px;
     color: #FFF;
     padding: 5px 10px;
-    background: #3D2B1F;
+    background: #ff5431;
     border-radius: 5px;
 }
+/* 🔹 Sale Products Container */
+.sale-container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background: #fff6d8; /* Light background to match sale theme */
+    text-align: center; /* Centers all child elements */
+    border-radius: 0px; /* Adds a clean rounded edge */
+   border-bottom:  #FFB54C solid 10px;
+}
 
+/* 🔹 Scrollable Products Section */
+.scroll-container {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Adds smooth scrolling effect */
+    gap: 15px; /* Creates space between products */
+    padding: 10px;
+    scrollbar-width: none; /* Hides scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
+}
 
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Chrome, Safari */
+}
 
+/* 🔹 Sale Products List */
+.productlist {
+    display: flex; /* Lays out products in a row */
+    gap: 20px; /* Adds spacing between products */
+}
+
+/* 🔹 Individual Product Styling */
+.product-card {
+    flex: 0 0 auto; /* Ensures products don't shrink */
+    width: 300px; /* Fixed width for uniformity */
+    background: white;
+    padding: 10px;
+    border-radius: 0px; /* Slightly rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Centers content within the card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth effects */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Adds hover shadow */
+}
+
+.product-card img {
+    width: 100%; /* Full width within the card */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images are cropped neatly */
+    border-radius: 5px; /* Matches card design */
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF5733; /* Bold color for sale price */
+}
+
+.product-card .mrp {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 10px;
+}
+
+.product-card button {
+    background: #FF5733;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Matches card corners */
+    transition: background 0.3s;
+}
+
+.product-card button:hover {
+    background: #FF4500; /* Slightly darker hover effect */
+}
 
 
 /* 🔹 Featured Products Section */
@@ -723,7 +832,8 @@ margin-top: 50px;
     font-size: 36px;
     color: #3D2B1F;
     margin-bottom: 20px;
-    padding: 30px;
+    padding: 20px;
+    padding-left: 0%;
 }
 .scroll-container {
     display: flex;
@@ -770,15 +880,23 @@ margin-top: 50px;
 }
 
 .product-card p {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
 }
 
 .product-card .price {
     font-size: 18px;
     font-weight: bold;
-    color: #FFB54C;
+    color: #FF5733; /* Bold color for sale price */
 }
+
+.product-card .mrp {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 10px;
+}
+
+
 
 .product-card button {
     background: #FFB54C;
@@ -1228,11 +1346,10 @@ ul li a:hover {
         font-size: 14px;
         padding: 10px 15px;
     }
- #countdown-timer {
-     display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Stack timer elements vertically */
-        gap: 10px; /* Reduce gap */
-    }
+      #countdown-timer {
+            grid-template-columns: repeat(4, 1fr); /* Force all 4 timer elements into a single row */
+            gap: 30px; /* Adjust gap for better alignment */
+        }
    
 }
 @media (max-width: 768px) {
@@ -1287,6 +1404,15 @@ ul li a:hover {
 
 }
 @media (max-width: 768px) {
+    #featured-products h2 {
+        font-size: 36px;
+        color: #3D2B1F;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        text-align: left;
+        padding: 10px;
+        font-weight: normal;
+    }
     h2 {
         font-size: 24px; /* General heading adjustment */
     }

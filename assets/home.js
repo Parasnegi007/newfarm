@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Function to Load Sale Products
+function loadSaleProducts() {
+    fetch("http://localhost:5000/api/products/sale-products") // Correct endpoint for sale products
+        .then(response => response.json())
+        .then(products => {
+            // Sale Products Section
+            const saleProductsContainer = document.getElementById("sale-list");
+            saleProductsContainer.innerHTML = ""; // Clear any previous content
+
+            products.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" />
+                        <h3>${product.name}</h3>
+                        <p>
+                            <span class="mrp">₹${product.mrp}</span>
+                            <span class="price">₹${product.price}</span>
+                        </p>
+                        <button>Buy Now</button>
+                    </div>
+                `;
+                saleProductsContainer.innerHTML += productCard; // Add product card to container
+            });
+        })
+        .catch(error => console.error("❌ Error loading sale products:", error));
+}
+
+// Load Sale Products on Page Load
+window.addEventListener("DOMContentLoaded", loadSaleProducts);
+
+    
     // Countdown target date
     const countdownDate = new Date("April 30, 2025 23:59:59").getTime();
 
@@ -188,7 +219,11 @@ function displayFeaturedProducts(products) {
          <img src="${product.image}" alt="${product.name}">
 
             <h3>${product.name}</h3>
-            <p>₹${product.price}</p>
+            
+             <p>
+                            <span class="mrp">₹${product.mrp}</span>
+                            <span class="price">₹${product.price}</span>
+                        </p>
             <button onclick="addToCart('${product._id}')">Add to Cart</button>
         `;
         featuredList.appendChild(productCard);
