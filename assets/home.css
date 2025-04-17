@@ -6,6 +6,7 @@ html {
     scroll-behavior: smooth;
 }
 
+
 .fruit-container {
     position: absolute;
     top: 0;
@@ -54,24 +55,48 @@ h1,h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: normal;
 }
-
 /* Fixed Header with Frosted Glass Effect */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 40px;
-    background: rgba(245, 248, 255, 0.392); /* Frosted glass effect */
-  
-   
+    background: rgba(245, 248, 255, 0.386); /* Transparent layer for glass effect */
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     box-sizing: border-box;
     z-index: 1000;
- 
+    overflow: hidden; /* Ensure the pseudo-element stays inside */
+
+}
+.header-blur-effect {
+    position: fixed; /* Fix position for the blur layer */
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 80px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent layer for frosted effect */
+    z-index: -10; /* Ensure it appears above other content */
+}
+
+
+/* Background Image Layer */
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(0.4px);
+    background-image: url('images/frosted\ glass.jpg'); /* Add your image here */
+    background-size: cover; /* Ensure the image covers the header */
+    background-position: center; /* Center the image */
+    opacity: 0.3; /* Adjust only the image opacity */
+    z-index: -1; /* Keep the image behind the content */
 }
 
 /* Main Background Styling */
@@ -380,16 +405,16 @@ nav ul li a:hover::after {
 }
 /* Sliding Side Menu */
 .side-menu {
-    position: fixed;
-    top: 0;
+    position:fixed;
+    top: 0vh;
     left: -80%; /* Fully hidden offscreen */
     width: 50%;
-    height: 100%;
+    height: 100vh;
     background-color: #ffffff; /* Match header color */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
     transition: left 0.3s ease; /* Smooth slide effect */
-    z-index: 2000;
+    z-index: 9999;
     padding: 20px 10px;
 }
 
@@ -399,7 +424,6 @@ nav ul li a:hover::after {
 }
 .side-menu ul li a {
     text-decoration: none;
-   
     color: #333;
     font-size: 18px;
     font-weight: 500;
@@ -458,6 +482,90 @@ margin-top: 50px;
         display: none; /* Hide the menu entirely on desktop */
     }
 }
+/* Footer Styling */
+.site-footer {
+    background-color: #FFB54C; /* Original earthy tone */
+    color: #FFF; /* White text */
+    padding: 20px 60px;
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Slightly smaller text size */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Ensure responsive layout */
+    gap: 30px; /* Space between sections */
+    justify-content: space-between;
+}
+
+.footer-links, .footer-support, .social-media, .footer-eco {
+    flex: 1; /* Equal space distribution */
+    min-width: 200px; /* Ensures a balanced layout */
+}
+
+h3 {
+    font-size: 22px; /* Decrease text size slightly */
+    color:white; /* Accent color for section titles */
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    color: #FFF; /* Original white text color */
+    text-decoration: none;
+    font-size: 18px; /* Slightly smaller size */
+}
+
+ul li a:hover {
+    color: #942905; /* Yellowish tone on hover */
+   
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #FFF; /* Original white text */
+    font-size: 18px; /* Slightly reduced size */
+}
+
+.social-icon:hover {
+    color: #942905; /* Yellowish color on hover */
+}
+
+.footer-eco p {
+    font-size: 18px; /* Reduced text size */
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid white; /* Keep the accent border color */
+    padding-top: 10px;
+    font-size: 12px; /* Slightly smaller for copyright */
+}
+
+
+
+
+
+
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -807,6 +915,7 @@ margin-top: 50px;
     background: #FF5733;
     color: white;
     border: none;
+    gap: 50px;
     padding: 8px 12px;
     margin-top: 10px;
     cursor: pointer;
@@ -1250,83 +1359,6 @@ html, body {
 }
 
 
-/* Footer Styling */
-.site-footer {
-    background-color: #FFB54C; /* Original earthy tone */
-    color: #FFF; /* White text */
-    padding: 20px 60px;
-    font-family: Arial, sans-serif;
-    font-size: 18px; /* Slightly smaller text size */
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap; /* Ensure responsive layout */
-    gap: 30px; /* Space between sections */
-    justify-content: space-between;
-}
-
-.footer-links, .footer-support, .social-media, .footer-eco {
-    flex: 1; /* Equal space distribution */
-    min-width: 200px; /* Ensures a balanced layout */
-}
-
-h3 {
-    font-size: 22px; /* Decrease text size slightly */
-    color:white; /* Accent color for section titles */
-    margin-bottom: 15px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
-ul li a {
-    color: #FFF; /* Original white text color */
-    text-decoration: none;
-    font-size: 18px; /* Slightly smaller size */
-}
-
-ul li a:hover {
-    color: #942905; /* Yellowish tone on hover */
-   
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-}
-
-.social-icon {
-    text-decoration: none;
-    color: #FFF; /* Original white text */
-    font-size: 18px; /* Slightly reduced size */
-}
-
-.social-icon:hover {
-    color: #942905; /* Yellowish color on hover */
-}
-
-.footer-eco p {
-    font-size: 18px; /* Reduced text size */
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-    text-align: center;
-    margin-top: 10px;
-    border-top: 1px solid white; /* Keep the accent border color */
-    padding-top: 10px;
-    font-size: 12px; /* Slightly smaller for copyright */
-}
 
 
 @media (max-width: 768px) {
@@ -1370,6 +1402,7 @@ ul li a:hover {
         height: 150px;
     }
 }
+
 @media (max-width: 768px) {
     .site-footer {
         padding: 10px; /* Adjust padding */

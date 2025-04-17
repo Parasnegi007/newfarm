@@ -5,20 +5,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalImg = document.getElementById("modalImage");
     const closeModalBtn = document.querySelector(".modal .close");
 
-    function openModal(imgElement) {
-        modal.style.display = "flex";
-        modal.classList.add("show");
-        modalImg.src = imgElement.src;
-        document.body.style.overflow = "hidden"; // ✅ Prevents scrolling when modal is open
-    }
-    
-    function closeModal() {
-        modal.classList.remove("show");
-        setTimeout(() => {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // ✅ Enables scrolling again
-        }, 300);
-    }
+    // Function to open the modal
+function openModal(image) {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    modal.style.display = "flex"; // Make the modal visible
+    modalImage.src = image.src; // Set the modal image source to the clicked image
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none"; // Hide the modal
+}
+
     
 
     // Attach event listeners to all gallery images
@@ -45,4 +45,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
- 
+ // Select all mission-content sections
+const missionContents = document.querySelectorAll(".mission-content");
+
+// Observer to track visibility based on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add the 'visible' class when the element enters the viewport
+            entry.target.classList.add("visible");
+        } else {
+            // Remove the 'visible' class when the element leaves the viewport
+            entry.target.classList.remove("visible");
+        }
+    });
+}, {
+    threshold: 0.8 /* Trigger when 50% of the element is visible */
+});
+
+// Attach observer to each mission content section
+missionContents.forEach(content => observer.observe(content));

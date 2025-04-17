@@ -10,20 +10,47 @@
 </head>
 <body>
 
-      <!-- Header Section -->
-      <header>
+    <header>
+        
+        <div class="header-bg"></div> <!-- Background Layer -->
+        <div class="header-blur-effect"></div>
         <!--dashboard on left-->
-        <div class="dashboard-container">
-            <a href="dashboard.html">
-                <img src="assets/images/6.png" alt="dashboard" class="nav-logo">
-            </a>
+    <div class="dashboard-container">
+        <a href="dashboard.html">
+            <img src="assets/images/6.png" alt="dashboard" class="nav-logo">
+        </a>
+    </div>
+        <!-- Menu Button for Mobile -->
+        <div id="menu-bar" class="menu-bar">
+            <button id="menu-toggle" class="menu-toggle">☰</button>
         </div>
+    
+        <!-- Side Menu Container -->
+        <div id="side-menu" class="side-menu">
+            <!-- Add the Dashboard badge here -->
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="dashboard-container">
+                <a href="dashboard.html">
+                    <img src="assets/images/6.png" alt="dashboard" class="nav-logo">
+                </a>
+            </div>
+        </div>
+    
         <!-- Centered Logo -->
         <div class="logo">
             <h1>🍏Fresh Apples</h1>
         </div>
-        <div class=nav-links>
+    
+        <!-- Navigation Links (Desktop) -->
+        <div class="nav-links">
             <nav>
+                
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -32,8 +59,9 @@
                 </ul>
             </nav>
         </div>
+        
     
-        <!-- Cart & wishlist on the Right -->
+        <!-- Cart & Wishlist on the Right -->
         <div class="header-right">
             <div class="cart-container">
                 <a href="cart.html">
@@ -46,91 +74,211 @@
                     <img src="assets/images/7.png" alt="wishlist" class="nav-logo">
                 </a>
             </div>
-            
-            
         </div>
     </header>
-    <!--intro -->
-    <section class="intro-section">
-        <div class="container">
+    
+<!--intro -->
+<section class="intro-section">
+    <div class="container">
+        <div class="marquee">
             <h8>"Cultivating Brilliance in Khadrala’s Verdant Heights"</h8>
+            <h9>Get 20% off on your first purchase! <strong>Limited time only!</strong></h9>
         </div>
-        <div class="fruit-container" id="fruitContainer"></div>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const fruitContainer = document.getElementById("fruitContainer");
-            const fruits = ['🍏', '🍒', '🫐','🍎', '🍓'];
+    </div>
+
+
+    <div class="fruit-container" id="fruitContainer"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fruitContainer = document.getElementById("fruitContainer");
+        const fruits = ['🍏', '🍒', '🫐','🍎', '🍓'];
+        
+        function createFruit() {
+            const fruit = document.createElement("div");
+            fruit.classList.add("fruit");
+            fruit.innerHTML = fruits[Math.floor(Math.random() * fruits.length)];
+            fruit.style.left = Math.random() * 100 + "vw";
+            fruit.style.animationDuration = Math.random() * 3 + 5 + "s";
+            fruit.style.fontSize = Math.random() * 15 + 15 + "px"; // Varying fruit size
+            fruitContainer.appendChild(fruit);
             
-            function createFruit() {
-                const fruit = document.createElement("div");
-                fruit.classList.add("fruit");
-                fruit.innerHTML = fruits[Math.floor(Math.random() * fruits.length)];
-                fruit.style.left = Math.random() * 100 + "vw";
-                fruit.style.animationDuration = Math.random() * 3 + 5 + "s";
-                fruit.style.fontSize = Math.random() * 15 + 15 + "px"; // Varying fruit size
-                fruitContainer.appendChild(fruit);
-                
-                setTimeout(() => {
-                    fruit.remove();
-                }, 8000);
-            }
-    
-            setInterval(createFruit, 500);
-        });
-    </script>
-    </section>
+            setTimeout(() => {
+                fruit.remove();
+            }, 8000);
+        }
+
+        setInterval(createFruit, 500);
+    });
+</script>
+</section>
+<section id="himalayan-fruits-section">
+    <div class="backgroundimage"></div> <!-- Background image will be styled in CSS -->
+    <div class="content">
+        <div class="slogan">
+            <h11>Experience the Richness of<strong> Himalayan Fruits</strong>, Born in the Coldest Climatic Paradise</h11>
+            <p>Our fruits are a gift from the peaks—bursting with flavor, grown in the purest air, and kissed by cold mountain breezes.</p>
+        </div>
+        <div class="fruit-image">
+            <img src="assets/images/sttra.png" alt="Himalayan Fruit"> <!-- Replace with your fruit image URL -->
+        </div>
+    </div>
+</section>
+
 
     <!-- Main Content for About Us -->
-    <section class="about-us">
-        <div class="about-us-content">
-            <h2>Our Story</h2>
-            <p>We are a family-owned farm located in the scenic village of Khadrala, nestled in the hills of Shimla, Himachal Pradesh, at an altitude of 10,000 feet. With years of dedication to organic farming, we proudly grow and harvest the freshest apples, ensuring that only the best reaches your doorstep.</p>
-            <p>At Fresh Apples, we believe in the power of nature. Our apples are grown without any harmful chemicals, ensuring a healthy and delicious product for you and your family. Our mission is to bring you the finest apples, directly from our farm to your table.</p>
-            <h3>Why Choose Us?</h3>
-            <ul>
-                <li>100% Organic Apples</li>
-                <li>Freshly Harvested & Delivered to Your Doorstep</li>
-                <li>Support for Sustainable Farming</li>
-                <li>Family-Owned and Operated</li>
-            </ul>
-            <h3>Our Mission</h3>
-            <p>Our mission is simple: to provide our customers with fresh, healthy, and sustainably grown apples while supporting the environment and the local farming community. We are committed to maintaining the highest standards of quality in every apple we grow.</p>
-        </div>
-
-        <!-- Optional: Image Gallery -->
-        <div class="farm-gallery">
-            <h3>Our Farm in Pictures</h3>
-            <div class="gallery">
-                <img src="assets/images/a.jpg" alt="Farm Image 1" onclick="openModal(this)">
-                <img src="assets/images/b.jpg" alt="Farm Image 2" onclick="openModal(this)">
-                <img src="assets/images/c.jpg" alt="Farm Image 3" onclick="openModal(this)">
+    <section id="our-mission">
+        <div class="mission-content">
+            <div class="text">
+                <h2>Bridging the Gap Between Farmers and Consumers</h2>
+                <p>At our core, we aim to connect farmers and consumers directly. Himalayan farms produce fruits of unmatched quality, but middlemen often limit farmers' profits. By delivering fresh harvests straight from the source, we ensure fairness for farmers and unmatched freshness for you. Together, we’re building trust and celebrating nature’s purity.</p>
+            </div>
+             <div class="image arrow rotate-clockwise slide-from-right">
+                <img src="assets/images/IMG_0021-2.jpg" alt="Farmers in Himalayan fields">
             </div>
         </div>
-        
-        <!-- Modal for Image Gallery -->
-        <div id="imageModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="modalImage">
+
+        <div class="mission-content">
+            <div class="text">
+                <h2>Empowering Farmers, Enriching Lives</h2>
+                <p>By empowering our producers with better returns and providing consumers with high-quality produce at lower costs, we aim to create a sustainable cycle of prosperity.For the producers, this means gaining access to new markets without the burden of exploitative practices. They are empowered to invest in better farming techniques, secure their livelihoods, and dream of a more prosperous future. </p>
+            </div>
+            <div class="image arrow rotate-counterclockwise slide-from-left">
+                <img src="assets/images/IMG_0036.jpg" alt="Fresh harvest from Himalayan farms">
+            </div>
         </div>
+
+        <div class="mission-content">
+            <div class="text">
+                <h2>Growing Together for a Better Tomorrow</h2>
+                <p>Our mission doesn’t stop here. We envision a future where farms across the region unite, joining forces to scale this initiative and share the richness of nature far and wide.This initiative is not just about farming—it’s about creating a legacy. By scaling this model, we hope to revolutionize the way agriculture supports rural communities, ensuring they are no longer overlooked but instead celebrated for their contributions.
+
+                    Through innovation, unity, and a shared commitment to excellence, we aspire to expand beyond the Himalayas, taking the flavors of our fruits and the ethos of fairness to the world.</p>
+            </div>
+            <div class="image arrow rotate-clockwise slide-from-right">
+                <img src="assets/images/IMG_0019-2.jpg" alt="Vision of expansion">
+            </div>
+        </div>
+    </section>
+    <section id="why-choose-us">
+        <div class="background-image"></div>
+        <h2 class="choose-heading">Why Choose Us</h2>
+        <div class="choose-container">
+            <div class="choose-text">
+                <h3>Experience the Difference</h3>
+                <ul>
+                    <li><strong>Altitude Advantage:</strong> Fruits ripened at 10,000 feet boast exceptional flavor and quality.</li>
+                    <li><strong>Generations of Expertise:</strong> Combining decades of knowledge with scientific methods.</li>
+                    <li><strong>Diverse Produce:</strong> From apples to blueberries, every fruit is grown with care.</li>
+                    <li><strong>Sustainability:</strong> Eco-friendly practices that protect nature for future generations.</li>
+                </ul>
+            </div>
+            <div class="choose-images">
+                <div class="image-scroll">
+                    <img src="assets/images/str.jpg" alt="Fresh Apples">
+                    <img src="assets/images/IMG_0021-2.jpg" alt="Cherry Blossom">
+                    <img src="assets/images/str.jpg" alt="Farm Fields">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="our-journey">
+        <h2 class="journey-heading">Our Journey</h2>
+        <div class="journey-content">
+            <div class="journey-paragraph">
+                <p>
+                    Nestled in the majestic heights of the Himalayas, Royal Beauty Orchard Tutupani (RBO Tutupani) has been thriving since the 1970s. What began as a small orchard cultivating apples and cherries grew into a cherished family legacy. Founded by the visionary Mr. Kehar Singh Negi, the orchard became a beacon of dedication and perseverance, with harvests reaching fruit markets across India.
+                </p>
+                <img src="assets/images/IMG_0021-2.jpg" alt="Historical Orchard Image" class="journey-image">
+            </div>
+            <div class="journey-paragraph">
+                <p>
+                    Over the years, the orchard has grown into a vibrant sanctuary of fruits Today, we merge modern horticulture techniques with traditional practices to preserve nature's essence while embracing innovation.
+                    Today, RBO Tutupani symbolizes the perfect blend of tradition and innovation. Expanding beyond its original offerings, the orchard now produces a rich variety of fruits, including plums, persimmons, blueberries, and strawberries. By embracing modern horticulture techniques and sustainable practices, we aim to preserve nature’s treasures while building a brighter future for farming.
+                </p>
+                <img src="assets/images/IMG_0124.jpg" alt="Modern Orchard Image" class="journey-image">
+            </div>
+        </div>
+    </section>
+        
+
+      <!-- Optional: Image Gallery -->
+<div class="farm-gallery">
+    <h3>Our Farm in Pictures</h3>
+    <div class="gallery">
+        <img src="assets/images/a.jpg" alt="Farm Image 1" onclick="openModal(this)">
+        <img src="assets/images/b.jpg" alt="Farm Image 2" onclick="openModal(this)">
+        <img src="assets/images/c.jpg" alt="Farm Image 3" onclick="openModal(this)">
+        <img src="assets/images/a.jpg" alt="Farm Image 1" onclick="openModal(this)">
+        <img src="assets/images/b.jpg" alt="Farm Image 2" onclick="openModal(this)">
+        <img src="assets/images/c.jpg" alt="Farm Image 3" onclick="openModal(this)">
+    </div>
+</div>
+
+<!-- Modal for Image Gallery -->
+<div id="imageModal" class="modal">
+    <div class="modal-content-wrapper">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+</div>
+
+        
 
     <!-- JavaScript File Link -->
     <script src="assets/about.js"></script>
+    <script src="assets/header.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", updateCartCount);</script>
     <!-- Social Media Links -->
-    <section class="social-media">
-        <h7>Follow Us</h7>
-        <div class="social-links">
-            <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-        </div>
-    </section>
-    </section>
-    <script src="assets/header.js"></script> <!-- Ensure this is included -->
+   
+    <footer class="site-footer">
+        <div class="footer-content">
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
     
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Fresh Apples Store | All Rights Reserved</p>
+            <!-- Customer Support -->
+            <div class="footer-support">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="returns.html">Return Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media -->
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i> Twitter</a>
+                </div>
+            </div>
+    
+            <!-- Environmental Commitment -->
+            <div class="footer-eco">
+                <h3>Sustainability</h3>
+                <p>Proudly promoting sustainable farming practices to protect our planet.</p>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Fresh Apples Store | All Rights Reserved</p>
+    
+        </div>
     </footer>
+
 </body>
 </html>

@@ -1,63 +1,73 @@
 /* General Styles */
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
-
-body {
-    background: #ffffff; /* Soft, creamy pastel yellow */
-    color: #3D2B1F; /* Rich deep brown for readability */
-    font-family: 'Poppins', sans-serif;
-    font-weight: lighter;
-}
-a {
-    display: inline-block; /* Makes the <a> tag behave like a block */
-    width:auto; /* Ensures it takes full width of the button */
-    text-decoration: none; /* Removes any default underline */
-}
-
-h1,h2, h3, h4, h5, h6 {
-    color: #444444; /* Bold, rich burnt orange */
-    letter-spacing: 1px;
-    font-family: 'Poppins', sans-serif;
-    font-weight:normal;
-}
-
-/* Fixed Header with Frosted Glass Effect */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: rgba(245, 248, 255, 0.392); /* Frosted glass effect */
-   backdrop-filter:blur(8px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1000;
-    border-bottom: 2px solid #ddd;
-    height: 150px;
-}
-
-/* Main Background Styling */
-.intro-section {
-    position: relative;
-    margin-top: 0px;
-    padding-top: 150px;
-    padding-bottom: 5px;
-    font-family: 'Poppins', sans-serif;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    overflow: hidden;
-    background: linear-gradient(to top, #069e85, #46b04b);
-
-
-
-}
-
 /* Falling Fruits Styling */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 10px; /* Adjust padding */
+        text-align: center; /* Center-align all content */
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Create two equal-width columns */
+        gap: 0px; /* Add spacing between columns */
+        padding: 0px; /* Add padding around the content */
+     text-align: left;
+     font-size: 20px;
+    }
+    
+    .footer-links, .footer-support, .social-media, .footer-eco {
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    h3 {
+        font-size: 20px; /* Smaller section titles */
+    }
+
+    ul li a {
+        font-size: 16px; /* Smaller text size */
+    }
+
+    .social-links {
+        gap: 5px; /* Reduce spacing between icons */
+    }
+
+
+}
+@media (max-width: 768px) {
+    #featured-products h2 {
+        font-size: 36px;
+        color: #3D2B1F;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        text-align: left;
+        padding: 10px;
+        font-weight: normal;
+    }
+    h2 {
+        font-size: 24px; /* General heading adjustment */
+    }
+
+    p {
+        font-size: 14px; /* Reduce paragraph text size */
+    }
+
+    button {
+        font-size: 14px; /* Standardize button sizes across sections */
+    }
+
+    img {
+        width: 100%; /* Ensure images are fully responsive */
+        height: auto;
+    }
+}
+
+
 .fruit-container {
     position: absolute;
     top: 0;
@@ -87,20 +97,144 @@ header {
     }
 }
 
-/* JavaScript will generate multiple falling fruits dynamically */
 
+body {
+    background: #ffffff; /* Soft, creamy pastel yellow */
+    color: #3D2B1F; /* Rich deep brown for readability */
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+}
+a {
+    display: inline-block; /* Makes the <a> tag behave like a block */
+    width:auto; /* Ensures it takes full width of the button */
+    text-decoration: none; /* Removes any default underline */
+}
+
+h1,h2, h3, h4, h5, h6 {
+    color: #444444; /* Bold, rich burnt orange */
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+}
+
+/* Fixed Header with Frosted Glass Effect */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px;
+    background: rgba(245, 248, 255, 0.386); /* Transparent layer for glass effect */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow: hidden; /* Ensure the pseudo-element stays inside */
+
+}
+.header-blur-effect {
+    position: fixed; /* Fix position for the blur layer */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent layer for frosted effect */
+    z-index: -10; /* Ensure it appears above other content */
+}
+
+
+/* Background Image Layer */
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(0.4px);
+    background-image: url('images/frosted\ glass.jpg'); /* Add your image here */
+    background-size: cover; /* Ensure the image covers the header */
+    background-position: center; /* Center the image */
+    opacity: 0.3; /* Adjust only the image opacity */
+    z-index: -1; /* Keep the image behind the content */
+}
+
+/* Main Background Styling */
+.intro-section {
+    position: relative;
+   border-bottom: #f5f5f5 0.5px solid;
+    margin-top: 0px;
+    padding-top: 80px;
+    padding-bottom: 0px;
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    background: #ffa220; /* Frosted glass effect */
+  
+}
+
+.marquee {
+    display: flex; /* Keeps text inline */
+    gap: 600px; /* Adds spacing between text lines */
+    overflow: hidden; /* Ensures text stays within the container */
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: move-train 30s linear infinite; /* Creates continuous scrolling */
+}
+
+.marquee h8, .marquee h9 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes move-train {
+    from {
+        transform: translateX(100%); /* Start off-screen on the right */
+    }
+    to {
+        transform: translateX(-100%); /* Move off-screen on the left */
+    }
+}
+
+.container {
+    width: 100%; /* Occupies full width */
+    overflow: hidden; /* Prevents text from spilling out */
+}
+
+@media (max-width: 768px) {
+    .marquee {
+        display: flex;
+        gap: 50px; /* Space between texts */
+        overflow: hidden;
+        white-space: nowrap;
+        animation: move-train 15s linear infinite;
+        width: 200%; /* Make the container wide enough to display full text */
+    }
+}
 
 .intro-section h8 {
     position: relative;
     font-size: 13px;
-    color: #333; /* Minimal heading color */
-    margin-bottom: 10px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
+   
+}
+.intro-section h9 {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff; /* Minimal heading color */
+    margin-bottom: 0px;
    
 }
 /* Navigation Links in a Single Division */
 .nav-links {
     flex: 1;
-    display: flex;
+    display:inline-flex;
     transform: translateX(40px);
     justify-content:center;
 }
@@ -108,8 +242,10 @@ header {
 .nav-links nav ul {
     list-style: none;
     display: flex;
+    font-size: larger;
     gap: 30px;
-    margin-top: 100px;
+    margin-top: 25px;
+margin-left: 0vw;
     padding: 0;
 }
 
@@ -118,7 +254,7 @@ header {
 }
 
 .nav-links nav ul li a {
-    color:white;
+    color: #FFFFFF;    
     text-decoration: none;
     font-weight: lighter;
     padding: 10px;
@@ -126,7 +262,7 @@ header {
 }
 
 .nav-links nav ul li a:hover {
-    color: #C0392B;
+    color: #b10707;
 }
 nav ul {
     list-style: none;
@@ -161,7 +297,7 @@ nav ul li a::after {
     left: 50%; /* Starts from center */
     width: 0;
     height: 2px;
-    background-color: #C0392B;
+    background-color: #b10707;
     transition: width 0.3s ease, left 0.3s ease;
     transform: translateX(-50%); /* Keeps it centered */
 }
@@ -169,16 +305,31 @@ nav ul li a::after {
 nav ul li a:hover::after {
     width: 100%;
 }
-
+.dashboard-container {
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%; /* Soft-rounded corners for a premium look */
+    background: linear-gradient(to bottom, #f5f5f5, #d9d9d9); /* Light gradient for depth */
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #444; /* Stronger border for definition */
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.5), 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle depth effect */
+    cursor: pointer;
+}
 /* Centered Logo */
 .logo {
     flex: 1;
     display: flex;
-    justify-content: center; /* Center the logo */
+    justify-content: left; /* Center the logo */
     text-align: center;
     position: absolute;
-    top: 10px;
-    left: 50%;
+    top: 22px;
+    left: 17vw;
     transform: translateX(-50%);
 }
 
@@ -195,7 +346,6 @@ nav ul li a:hover::after {
     gap: 20px;
 }
 
-/* Icons */
 .nav-logo {
     width: 40px;
     height: 40px;
@@ -253,9 +403,227 @@ nav ul li a:hover::after {
     border-radius: 0% ;
         min-width: 18px;
     text-align: center;
-    z-index: 3;
     pointer-events: none;
+    z-index: 3;
 }
+/* For Desktop Screens (above 1024px) */
+@media (min-width: 1025px) {
+    .menu-bar {
+        display: none; /* Hide menu button on desktop */
+    }
+    .nav-links {
+        display: flex; /* Ensure normal display of nav links */
+    }
+}
+
+/* For Mobile Screens (up to 1024px) */
+@media (max-width: 1024px) {
+    .menu-bar {
+        display: flex; /* Show menu button */
+        align-items: center;
+        position: absolute;
+        left: 15px;
+        top: 25px;
+        z-index: 1500;
+    }
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #3D2B1F;
+    }
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+    }
+
+    .nav-links.active {
+        display: flex; /* Visible when active class is added */
+    }
+
+
+    .logo {
+        position: relative;
+        left: 5vw;
+        transform: none;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: -35px;
+    }
+
+    .header-right {
+        position: absolute;
+        top: 25px;
+        right: 15px;
+        margin-top: -10px;
+        gap: 0px;
+    }
+
+    .cart-container,
+    .wishlist-container {
+        margin: 0 5px;
+    }
+}
+/* Sliding Side Menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -80%; /* Fully hidden offscreen */
+    width: 50%;
+    height: 100%;
+    background-color: #ffffff; /* Match header color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: left 0.3s ease; /* Smooth slide effect */
+    z-index: 2000;
+    padding: 20px 10px;
+}
+
+/* Active State for the Menu (Slides In) */
+.side-menu.active {
+    left: 0; /* Bring the menu onscreen */
+}
+.side-menu ul li a {
+    text-decoration: none;
+   
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid #e4e4e4; /* Line below each link */
+    padding-bottom: 15px; /* Extra space specifically below the text */
+    text-align: center;
+}
+.side-menu ul li:first-child a {
+margin-top: 50px;
+}
+.side-menu ul li:last-child a {
+    border-bottom: none; /* Remove line below the last link */
+}
+.side-menu ul li a:hover {
+    color: #FFB54C; /* Professional hover effect */
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    padding: 10px 0;
+}
+
+.side-menu .nav-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.side-menu .dashboard-container {
+    margin-left: 0px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 0; /* Soft-rounded corners for a premium look */
+    background: linear-gradient(to bottom, #f5f5f5, #d9d9d9); /* Light gradient for depth */
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #444; /* Stronger border for definition */
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.5), 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+                0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle depth effect */
+    cursor: pointer;
+}
+
+/* For Desktop Screens (above 1024px) */
+@media (min-width: 1025px) {
+    .side-menu {
+        display: none; /* Hide the menu entirely on desktop */
+    }
+}
+/* Footer Styling */
+.site-footer {
+    background-color: #FFB54C; /* Original earthy tone */
+    color: #FFF; /* White text */
+    padding: 20px 60px;
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Slightly smaller text size */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Ensure responsive layout */
+    gap: 30px; /* Space between sections */
+    justify-content: space-between;
+}
+
+.footer-links, .footer-support, .social-media, .footer-eco {
+    flex: 1; /* Equal space distribution */
+    min-width: 200px; /* Ensures a balanced layout */
+}
+
+h3 {
+    font-size: 22px; /* Decrease text size slightly */
+    color:white; /* Accent color for section titles */
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    color: #FFF; /* Original white text color */
+    text-decoration: none;
+    font-size: 18px; /* Slightly smaller size */
+}
+
+ul li a:hover {
+    color: #942905; /* Yellowish tone on hover */
+   
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #FFF; /* Original white text */
+    font-size: 18px; /* Slightly reduced size */
+}
+
+.social-icon:hover {
+    color: #942905; /* Yellowish color on hover */
+}
+
+.footer-eco p {
+    font-size: 18px; /* Reduced text size */
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid white; /* Keep the accent border color */
+    padding-top: 10px;
+    font-size: 12px; /* Slightly smaller for copyright */
+}
+
+
 
 /* Prevent content overflow */
 .container {
@@ -475,47 +843,11 @@ html, body {
     height: auto;
     margin: 0;
     padding: 0;
-   
+   overflow: hidden;
+   overflow-y: auto;
 }
 
 /* Make the main content section expand to push footer down */
 .container {
     flex: 1;
 }
-
-/* Social Media Section */
-.social-media {
-    padding: 20px;
-    background: #222;
-    color: white;
-    text-align: center;
-    font-size: 27px;
-    
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.social-icon {
-    font-size: 30px;
-    color: white;
-    text-decoration: none;
-}
-
-.social-icon:hover {
-    color: #ffcc00;
-}
-
-
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    padding: 2px;
-    margin-top: 1px;
-    text-align: center;
-}
-

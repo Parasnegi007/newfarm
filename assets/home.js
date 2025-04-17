@@ -17,14 +17,85 @@ function loadSaleProducts() {
                             <span class="mrp">₹${product.mrp}</span>
                             <span class="price">₹${product.price}</span>
                         </p>
-                        <button>Buy Now</button>
-                    </div>
+                        <button class="buy-now-btn" data-id="${product._id}">Buy Now</button>
+                  
+                     <button class="cart-btn" data-id="${product._id}">
+                                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome Cart Icon -->
+                            </button>
+                              </div>
                 `;
                 saleProductsContainer.innerHTML += productCard; // Add product card to container
+            });
+             // Bind "Buy Now" button click event
+            document.querySelectorAll(".buy-now-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const productId = this.dataset.id;
+                    addToCart(productId, true); // Add product to cart and redirect
+                });
+            });
+
+            // Bind cart logo button click event
+            document.querySelectorAll(".cart-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const productId = this.dataset.id;
+                    addToCart(productId); // Add product to cart without redirect
+                });
             });
         })
         .catch(error => console.error("❌ Error loading sale products:", error));
 }
+// 🛒 Function to add item to Cart (Guest & Logged-in Users)
+async function addToCart(productId, redirectToCheckout = false) {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+        // Guest user - store in localStorage
+        let cart = JSON.parse(localStorage.getItem("guestCart")) || [];
+        const itemIndex = cart.findIndex(item => item.productId === productId);
+
+        if (itemIndex > -1) {
+            cart[itemIndex].quantity += 1;
+        } else {
+            cart.push({ productId, quantity: 1 });
+        }
+
+        localStorage.setItem("guestCart", JSON.stringify(cart));
+        updateCartCount();
+        alert("Added to cart! 🛒");
+
+        if (redirectToCheckout) {
+            window.location.href = "../store/checkout.html"; // Redirect guest user to checkout
+        }
+        return;
+    }
+
+    // Logged-in user - store in backend
+    try {
+        const response = await fetch( "http://localhost:5000/api/users/cart", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({ productId, quantity: 1 })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            updateCartCount();
+            alert("Added to Cart! 🛒");
+
+            if (redirectToCheckout) {
+                window.location.href = "../store/checkout.html"; // Redirect logged-in user to checkout
+            }
+        } else {
+            alert(data.message || "Error adding to cart");
+        }
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+    }
+}
+
 
 // Load Sale Products on Page Load
 window.addEventListener("DOMContentLoaded", loadSaleProducts);
@@ -224,7 +295,10 @@ function displayFeaturedProducts(products) {
                             <span class="mrp">₹${product.mrp}</span>
                             <span class="price">₹${product.price}</span>
                         </p>
-            <button onclick="addToCart('${product._id}')">Add to Cart</button>
+            <button class="buy-now-btn" data-id="${product._id}">Buy Now</button>
+             <button class="cart-btn" data-id="${product._id}">
+                                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome Cart Icon -->
+                            </button>
         `;
         featuredList.appendChild(productCard);
     });
